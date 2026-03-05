@@ -50,11 +50,11 @@ td,th {
 }
 
 th {
-    padding: 10px;
+    padding: 13px;
 }
 
 tr:first-child th {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     border-left: none;
     border-top: none;
@@ -80,8 +80,8 @@ td:last-child, th:last-child {
 }
 
 th {
-    /* border-top: 1px solid rgba(0,0,0,0.1);
-    border-right: 1px solid rgba(0,0,0,0.1); */
+    /* border-top: 1px solid rgba(0,0,0,0.1); */
+    border-bottom: 1px solid rgba(0,0,0,0.1);
     background-color: rgb(91, 43, 36);
     color: #fff;
     text-shadow: 0px -1px 0px rgba(0,0,0,0.2);
@@ -89,7 +89,7 @@ th {
 }
 th .any,
 th .month {
-    font-weight: 800;
+    font-weight: 700;
     text-shadow: none;
     color: #fff;
 }
@@ -99,7 +99,10 @@ margin-right: 7px;
 }
 
 tr:nth-child(2) th {
-    padding: 5px;
+    padding: 12px;
+    background-color: rgb(249, 250, 251);
+    color:rgb(91, 43, 36);
+    font-weight: 700;
 }
 td {
     padding: 0;
@@ -122,7 +125,7 @@ td.avui>span {
     background-color: rgb(91, 43, 36);
     color: #fff;
     border: 2px solid rgba(0,0,0,0.1);
-    border-radius: 1rem;
+    border-radius: 8px;
 }
 td.fora > span {
     opacity: 0.2;
@@ -131,6 +134,7 @@ td.fora > span {
 td > span:hover {
     background: rgb(91, 43, 36, 0.4);
     color: #fff;
+    border-radius: 8px;
 }
 
 .boto-next, .boto-prev {
@@ -156,12 +160,16 @@ td > span:hover {
 }
 
 .boto-next { 
-    right: 10px; 
+    right: 15px; 
     padding: 0 11px 0 0;
 }
 
+.boto-next > svg {
+        transform: rotate(180deg);
+    }
+
 .boto-prev { 
-    left: 10px; 
+    left: 15px; 
     padding: 0 0 0 4px;
 }
 
@@ -216,13 +224,13 @@ var dies = [
 ];
 
 var dies_abr = [
-    'Su',
-    'Mo',
-    'Tu',
-    'We',
-    'Th',
-    'Fr',
-    'Sa'
+    'S',
+    'M',
+    'T',
+    'W',
+    'T',
+    'F',
+    'S'
 ];
 
 Number.prototype.pad = function(num) {
@@ -269,11 +277,15 @@ function calendari(widget, data)
 
     var boto_prev = document.createElement('button');
     boto_prev.className = 'boto-prev';
-    boto_prev.innerHTML = '&lang;';
+    boto_prev.innerHTML = `<svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4.80847 -5.20835e-08L6 1.23899L2.38306 5L6 8.76101L4.80847 10L-2.18557e-07 5L4.80847 -5.20835e-08Z" fill="white"/>
+</svg>`;
 
     var boto_next = document.createElement('button');
     boto_next.className = 'boto-next';
-    boto_next.innerHTML = '&rang;';
+    boto_next.innerHTML = `<svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4.80847 -5.20835e-08L6 1.23899L2.38306 5L6 8.76101L4.80847 10L-2.18557e-07 5L4.80847 -5.20835e-08Z" fill="white"/>
+</svg>`;
 
     titol.appendChild(boto_prev);
     titol.appendChild(document.createElement('span')).innerHTML = 
